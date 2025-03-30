@@ -10,14 +10,14 @@ source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-release_file="$ASDF_DOWNLOAD_PATH/yazi-x86_64-unknown-linux-gnu.zip"
+release_file="$ASDF_DOWNLOAD_PATH/yazi-x86_64-unknown-linux-musl.zip"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
 
 #  Extract contents of tar.gz file into the download directory
 #tar -xzf "$release_file" -C "$ASDF_DOWNLOAD_PATH" --strip-components=1 || fail "Could not extract $release_file"
-unzip -j "$release_file" yazi-x86_64-unknown-linux-gnu/yazi yazi-x86_64-unknown-linux-gnu/ya -d "$ASDF_DOWNLOAD_PATH" || fail "Could not extract $release_file"
+unzip -j "$release_file" yazi-x86_64-unknown-linux-musl/yazi yazi-x86_64-unknown-linux-musl/ya -d "$ASDF_DOWNLOAD_PATH" || fail "Could not extract $release_file"
 
 # Remove the zip file since we don't need to keep it
 rm "$release_file"
